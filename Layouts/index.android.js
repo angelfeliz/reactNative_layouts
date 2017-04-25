@@ -6,11 +6,12 @@ import {
   View
 } from 'react-native';
 import StackLayout from './layout/stackLayout';
+import AbsoluteLayout from './layout/absoluteLayout';
 
 export default class Layouts extends Component {
   render() {
     return(
-      <StackLayout/>      
+      <AbsoluteLayout/>
     );
   }
 }
