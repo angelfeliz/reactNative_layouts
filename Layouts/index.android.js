@@ -8,11 +8,12 @@ import {
 import StackLayout from './layout/stackLayout';
 import AbsoluteLayout from './layout/absoluteLayout';
 import GridLayout from './layout/gridLayout';
+import MasterDetail from './pages/masterDetail'
 
 export default class Layouts extends Component {
   render() {
     return(
-      <AbsoluteLayout/>
+      <MasterDetail/>
     );
   }
 }
