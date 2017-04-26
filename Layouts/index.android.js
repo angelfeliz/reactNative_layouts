@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import StackLayout from './layout/stackLayout';
 import AbsoluteLayout from './layout/absoluteLayout';
+import GridLayout from './layout/gridLayout';
 
 export default class Layouts extends Component {
   render() {
