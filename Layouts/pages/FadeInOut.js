@@ -25,7 +25,7 @@ export default class FadeInOut extends Component {
       }).start(this._removeView);
     }
 
-    if (isVisible) {      
+    if (isVisible) {
       Animated.timing(this.state.opacity, {
         toValue: 1
       }).start();
@@ -41,7 +41,9 @@ export default class FadeInOut extends Component {
 
   render(){
     return(
+      <Animated.View >
 
+      </Animated.View>
     )
 };
 
