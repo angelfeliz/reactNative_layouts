@@ -1,4 +1,4 @@
-class Dispatcher {  
+class Dispatcher {
   constructor() {
      this.isDispatching = false;
      this.actionHandlers = [];
@@ -14,7 +14,7 @@ class Dispatcher {
   }
 
   register(actionHandler) {
-     this.actinoHandlers.push(actionHandler);
+     this.actionHandlers.push(actionHandler);
   }
 }
 

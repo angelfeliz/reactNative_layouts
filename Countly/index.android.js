@@ -12,7 +12,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { increment, decrement, zero } from './src/action';
+import { increment, descrement, zero } from './src/action';
 import TallyStore from './src/TallyStore';
 
 
@@ -34,9 +34,7 @@ componentWillUnmount() {
 }
 
 updateState() {
-  this.setState({
-    tally: TallyStore.getTally();
-  });
+  this.setState({ tally: TallyStore.getTally() });
 }
   render() {
     return (
@@ -52,7 +50,7 @@ updateState() {
              +
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={decrement}>
+        <TouchableOpacity style={styles.button} onPress={descrement}>
           <Text style={styles.buttonText}>
             -
           </Text>
