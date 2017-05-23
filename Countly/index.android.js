@@ -13,28 +13,29 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { increment, descrement, zero } from './src/action';
-import TallyStore from './src/TallyStore';
+import store from './src/Store';
 
 
 export default class Countly extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    tally: TallyStore.getTally()
+    tally: store.getState(),
+    unsubscribe: store.subcribe(this.updateState),
   }
   this.updateState = this.updateState.bind(this);
 }
 
 componentDidMount() {
-  TallyStore.addChangeListener(this.updateState);
+
 }
 
 componentWillUnmount() {
-  TallyStore.removeChangeListener(this.updateState);
+  this.state.unsubscribe();
 }
 
 updateState() {
-  this.setState({ tally: TallyStore.getTally() });
+  this.setState({ tally: store.getState() });
 }
   render() {
     return (
@@ -45,17 +46,17 @@ updateState() {
         <Text style={styles.tally}>
           Tally: {this.state.tally.count}
         </Text>
-        <TouchableOpacity style={styles.button} onPress={increment}>
+        <TouchableOpacity style={styles.button} onPress={ () => store.dispatch(increment()) }>
           <Text style={styles.buttonText}>
              +
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={descrement}>
+        <TouchableOpacity style={styles.button} onPress={ () => store.dispatch(dicrement()) }>
           <Text style={styles.buttonText}>
             -
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={zero}>
+        <TouchableOpacity style={styles.button} onPress={ () => store.dispatch(zero()) }>
           <Text style={styles.buttonText}>
             0
           </Text>
